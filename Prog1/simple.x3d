@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding ="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN"
+	"http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D profile="immersive">
+
+<!-- asdfas -->
+	<head>
+	
+	</head>
+
+	<!-- asdfasdf -->
+	
+        <Scene>
+        	<Transform>
+        		<!-- translation =  -->
+        		
+        	</Transform>
+                <Shape> 
+                <Sphere radius="10.0"/> 
+                </Shape>
+                
+                <Shape>
+                <Appearance>
+                        <Material ambientIntensity = "0.4"
+                        	  transparency = "0.0" 
+                        	  emissiveColor = "0.0 0.0 0.0"
+                        	  shininess = "0.16"
+                        	  diffuseColor = "0.8 0.8 0.0"
+                        	  specularColor = "0.71 0.7 0.56" />
+                        <!-- Image binding
+                        MImageTexture url = '"#nameofimage.png" ' />
+                        this will overide the colour in the material node
+                        -->
+                        	  
+                        	  
+                </Appearance>
+                
+                <Text string='"Hello" "World!" '>
+                        <FontStyle style="BOLD" size="18.0" />
+                </Text>
+                </Shape>
+        </Scene>
+
+</X3D>

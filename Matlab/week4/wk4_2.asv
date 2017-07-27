@@ -1,0 +1,29 @@
+clear all
+clc
+close all
+
+%Assignment
+x = rand(1,200);
+y = rand(1,200);
+
+for i = 1:200
+    if(x(1,i) > y(1,i))
+        disp(x(1,i));
+        disp(y(i));
+        %red stars
+        plot(x,y,'*',...
+            'markersize', 10,...
+            'markeredgecolor','r');
+        
+    elseif( y(1,i) > x(1,i))
+        %blue triangles
+        disp(x(i));
+        disp(y(i));
+        plot(x,y,'^',...
+            'markersize', 10,...
+            'markeredgecolor','b');
+    end
+end
+
+axis([0 1 0 1]);
+title('Scatterplot');

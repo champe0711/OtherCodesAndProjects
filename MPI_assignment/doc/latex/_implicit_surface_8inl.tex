@@ -1,0 +1,228 @@
+\hypertarget{_implicit_surface_8inl}{\section{/home/fpvidal/\-Dropbox/\-M\-P\-I\-\_\-assignment/include/\-Implicit\-Surface.inl File Reference}
+\label{_implicit_surface_8inl}\index{/home/fpvidal/\-Dropbox/\-M\-P\-I\-\_\-assignment/include/\-Implicit\-Surface.\-inl@{/home/fpvidal/\-Dropbox/\-M\-P\-I\-\_\-assignment/include/\-Implicit\-Surface.\-inl}}
+}
+
+
+Functions to build 3\-D implicit surfaces. To know what implicit surfaces are, please visit Paul Bourke's tutorial available at \href{http://paulbourke.net/geometry/implicitsurf/}{\tt http\-://paulbourke.\-net/geometry/implicitsurf/}.  
+
+
+{\ttfamily \#include $<$cmath$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{_implicit_surface_8inl_a2aee5d4a34861cbde35c6c2f77791c05}{evaluate} (\hyperlink{_implicit_surface_8h_ab3f34159fea0c465761074e4ffbdc325}{Density\-Function\-Type} a\-Density\-Function\-Type, float r, float a, float b)
+\begin{DoxyCompactList}\small\item\em Evaluate the density function. \end{DoxyCompactList}\item 
+float \hyperlink{_implicit_surface_8inl_a05dd90fdf368c0445a360977ef116320}{evaluate\-Sphere} (float r)
+\begin{DoxyCompactList}\small\item\em Use the density function that creates spheres. \end{DoxyCompactList}\item 
+float \hyperlink{_implicit_surface_8inl_a512710de855641bf04bdc15c4f80f080}{evaluate\-Blobby\-Molecule} (float r, float a, float b)
+\item 
+float \hyperlink{_implicit_surface_8inl_a1298af286a4d38c81ced0cdf4be4681c}{evaluate\-Meta\-Ball} (float r, float a, float b)
+\begin{DoxyCompactList}\small\item\em Use the density function that creates Meta Balls. \end{DoxyCompactList}\item 
+float \hyperlink{_implicit_surface_8inl_a54c6c14872491219d96b62e621927f32}{evaluate\-Soft\-Object} (float r, float a, float b)
+\item 
+float \hyperlink{_implicit_surface_8inl_a1219bc80300849441250bb050951a0f5}{distance} (const float a\-Point1\mbox{[}3\mbox{]}, const float a\-Point2\mbox{[}3\mbox{]})
+\begin{DoxyCompactList}\small\item\em The distance between two 3\-D points. \end{DoxyCompactList}\item 
+void \hyperlink{_implicit_surface_8inl_a3f89f0457c87632cda4ab367bc64a75a}{write\-Voxel\-Data} (const std\-::string \&a\-File\-Name, const std\-::vector$<$ float $>$ \&ap\-Voxel\-Data\-Set)
+\begin{DoxyCompactList}\small\item\em Write a volume dataset into a file (binary R\-A\-W format). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions to build 3\-D implicit surfaces. To know what implicit surfaces are, please visit Paul Bourke's tutorial available at \href{http://paulbourke.net/geometry/implicitsurf/}{\tt http\-://paulbourke.\-net/geometry/implicitsurf/}. \begin{DoxyVersion}{Version}
+1.\-0
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+08/03/2014
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Dr Franck P. Vidal 
+\end{DoxyAuthor}
+
+
+Definition in file \hyperlink{_implicit_surface_8inl_source}{Implicit\-Surface.\-inl}.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_implicit_surface_8inl_a1219bc80300849441250bb050951a0f5}{\index{Implicit\-Surface.\-inl@{Implicit\-Surface.\-inl}!distance@{distance}}
+\index{distance@{distance}!ImplicitSurface.inl@{Implicit\-Surface.\-inl}}
+\subsubsection[{distance}]{\setlength{\rightskip}{0pt plus 5cm}float distance (
+\begin{DoxyParamCaption}
+\item[{const float}]{a\-Point1\mbox{[}3\mbox{]}, }
+\item[{const float}]{a\-Point2\mbox{[}3\mbox{]}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{_implicit_surface_8inl_a1219bc80300849441250bb050951a0f5}
+
+
+The distance between two 3\-D points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Point1,\-:} & the first point \\
+\hline
+{\em a\-Point2,\-:} & the second point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the distance between a\-Point1 and a\-Point2 
+\end{DoxyReturn}
+
+
+Definition at line 122 of file Implicit\-Surface.\-inl.
+
+\hypertarget{_implicit_surface_8inl_a2aee5d4a34861cbde35c6c2f77791c05}{\index{Implicit\-Surface.\-inl@{Implicit\-Surface.\-inl}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!ImplicitSurface.inl@{Implicit\-Surface.\-inl}}
+\subsubsection[{evaluate}]{\setlength{\rightskip}{0pt plus 5cm}float evaluate (
+\begin{DoxyParamCaption}
+\item[{{\bf Density\-Function\-Type}}]{a\-Density\-Function, }
+\item[{float}]{r, }
+\item[{float}]{a = {\ttfamily 0}, }
+\item[{float}]{b = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{_implicit_surface_8inl_a2aee5d4a34861cbde35c6c2f77791c05}
+
+
+Evaluate the density function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-Density\-Function,\-:} & the type of density function \\
+\hline
+{\em r,\-:} & the distance of the voxel to the center of the control point \\
+\hline
+{\em a,\-:} & the first parameter of the density function (default value\-: 0) \\
+\hline
+{\em b,\-:} & the second parameter of the density function (default value\-: 0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the density value corresponding to distance r 
+\end{DoxyReturn}
+
+
+Definition at line 27 of file Implicit\-Surface.\-inl.
+
+\hypertarget{_implicit_surface_8inl_a512710de855641bf04bdc15c4f80f080}{\index{Implicit\-Surface.\-inl@{Implicit\-Surface.\-inl}!evaluate\-Blobby\-Molecule@{evaluate\-Blobby\-Molecule}}
+\index{evaluate\-Blobby\-Molecule@{evaluate\-Blobby\-Molecule}!ImplicitSurface.inl@{Implicit\-Surface.\-inl}}
+\subsubsection[{evaluate\-Blobby\-Molecule}]{\setlength{\rightskip}{0pt plus 5cm}float evaluate\-Blobby\-Molecule (
+\begin{DoxyParamCaption}
+\item[{float}]{r, }
+\item[{float}]{a, }
+\item[{float}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{_implicit_surface_8inl_a512710de855641bf04bdc15c4f80f080}
+Use the density function that creates Blobby Molecules. It was first created by Jim Blinn. It is modelled after electron density fields. 
+\begin{DoxyParams}{Parameters}
+{\em r,\-:} & the distance of the voxel to the center of the control point \\
+\hline
+{\em a,\-:} & the height \\
+\hline
+{\em b,\-:} & the standard deviation of the curve \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the density value corresponding to distance r 
+\end{DoxyReturn}
+
+
+Definition at line 69 of file Implicit\-Surface.\-inl.
+
+\hypertarget{_implicit_surface_8inl_a1298af286a4d38c81ced0cdf4be4681c}{\index{Implicit\-Surface.\-inl@{Implicit\-Surface.\-inl}!evaluate\-Meta\-Ball@{evaluate\-Meta\-Ball}}
+\index{evaluate\-Meta\-Ball@{evaluate\-Meta\-Ball}!ImplicitSurface.inl@{Implicit\-Surface.\-inl}}
+\subsubsection[{evaluate\-Meta\-Ball}]{\setlength{\rightskip}{0pt plus 5cm}float evaluate\-Meta\-Ball (
+\begin{DoxyParamCaption}
+\item[{float}]{r, }
+\item[{float}]{a, }
+\item[{float}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{_implicit_surface_8inl_a1298af286a4d38c81ced0cdf4be4681c}
+
+
+Use the density function that creates Meta Balls. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r,\-:} & the distance of the voxel to the center of the control point \\
+\hline
+{\em a,\-:} & the scaling factor \\
+\hline
+{\em b,\-:} & the maximum distance a control primitive contributes to the field \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the density value corresponding to distance r 
+\end{DoxyReturn}
+
+
+Definition at line 84 of file Implicit\-Surface.\-inl.
+
+\hypertarget{_implicit_surface_8inl_a54c6c14872491219d96b62e621927f32}{\index{Implicit\-Surface.\-inl@{Implicit\-Surface.\-inl}!evaluate\-Soft\-Object@{evaluate\-Soft\-Object}}
+\index{evaluate\-Soft\-Object@{evaluate\-Soft\-Object}!ImplicitSurface.inl@{Implicit\-Surface.\-inl}}
+\subsubsection[{evaluate\-Soft\-Object}]{\setlength{\rightskip}{0pt plus 5cm}float evaluate\-Soft\-Object (
+\begin{DoxyParamCaption}
+\item[{float}]{r, }
+\item[{float}]{a, }
+\item[{float}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{_implicit_surface_8inl_a54c6c14872491219d96b62e621927f32}
+Use the density function that creates Soft Objects. It was first created by the Wyvill brothers. 
+\begin{DoxyParams}{Parameters}
+{\em r,\-:} & the distance of the voxel to the center of the control point \\
+\hline
+{\em a,\-:} & the scaling factor \\
+\hline
+{\em b,\-:} & the maximum distance a control primitive contributes to the field \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the density value corresponding to distance r 
+\end{DoxyReturn}
+
+
+Definition at line 103 of file Implicit\-Surface.\-inl.
+
+\hypertarget{_implicit_surface_8inl_a05dd90fdf368c0445a360977ef116320}{\index{Implicit\-Surface.\-inl@{Implicit\-Surface.\-inl}!evaluate\-Sphere@{evaluate\-Sphere}}
+\index{evaluate\-Sphere@{evaluate\-Sphere}!ImplicitSurface.inl@{Implicit\-Surface.\-inl}}
+\subsubsection[{evaluate\-Sphere}]{\setlength{\rightskip}{0pt plus 5cm}float evaluate\-Sphere (
+\begin{DoxyParamCaption}
+\item[{float}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{_implicit_surface_8inl_a05dd90fdf368c0445a360977ef116320}
+
+
+Use the density function that creates spheres. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r,\-:} & the distance of the voxel to the center of the control point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the density value corresponding to distance r 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file Implicit\-Surface.\-inl.
+
+\hypertarget{_implicit_surface_8inl_a3f89f0457c87632cda4ab367bc64a75a}{\index{Implicit\-Surface.\-inl@{Implicit\-Surface.\-inl}!write\-Voxel\-Data@{write\-Voxel\-Data}}
+\index{write\-Voxel\-Data@{write\-Voxel\-Data}!ImplicitSurface.inl@{Implicit\-Surface.\-inl}}
+\subsubsection[{write\-Voxel\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void write\-Voxel\-Data (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{a\-File\-Name, }
+\item[{const std\-::vector$<$ float $>$ \&}]{ap\-Voxel\-Data\-Set}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{_implicit_surface_8inl_a3f89f0457c87632cda4ab367bc64a75a}
+
+
+Write a volume dataset into a file (binary R\-A\-W format). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a\-File\-Name,\-:} & the name of the file \\
+\hline
+{\em ap\-Voxel\-Data\-Set,\-:} & the volume dataset to write \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 135 of file Implicit\-Surface.\-inl.
+

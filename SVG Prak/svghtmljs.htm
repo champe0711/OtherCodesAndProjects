@@ -1,0 +1,43 @@
+<html>
+<body>
+
+<h1>My first SVG</h1>
+
+<script>
+	function createC(){
+		var body = document.getElementById("a");
+
+
+		var NS = "http://www.w3.org/2000/svg";
+		var svg= document.createElementNS(NS,"svg");
+		svg.width=300;
+		svg.height=500;
+		var rect = document.createElementNS(NS, "rect");
+	
+		rect.x.baseVal.value=100;
+		rect.y.baseVal.value=20;
+
+		// rect.setAttribute("height",100);
+		// rect.setAttribute("wdith",200);
+		// rect.style.fill="blue";
+		rect.height.baseVal.value=100;
+		rect.width.baseVal.value=100;
+		rect.style.fill="blue"
+
+
+		svg.appendChild(rect);
+		body.appendChild(svg);
+	}
+
+</script>
+
+
+
+<input type="button" onclick="createC()" value="Click Me!">
+
+<p id="a"> a</p>
+
+
+
+</body>
+</html>

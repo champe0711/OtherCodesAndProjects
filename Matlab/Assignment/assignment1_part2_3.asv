@@ -1,0 +1,34 @@
+clear all
+clc
+close all
+
+size  = 17;
+
+for x = 1:20
+    y = 1:20;
+    z = x;
+    
+    r = rand; g = rand; b = rand;
+    hold on
+    
+    plot(x,1,'s--',...
+        'MarkerEdgeColor',[r,g,b],...
+        'MarkerFaceColor',[r,g,b],...
+        'MarkerSize',size)
+    hold on
+    
+    plot(1,y,'s',...
+        'MarkerEdgeColor',[r,g,b],...
+        'MarkerFaceColor',[r,g,b],...
+        'MarkerSize',size)
+    hold on
+    
+    plot(x,z,'s',...
+        'MarkerEdgeColor',[r,g,b],...
+        'MarkerFaceColor',[r,g,b],...
+        'MarkerSize',size)
+    axis off
+    
+    plot
+end
+

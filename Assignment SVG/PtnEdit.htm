@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="myPtrn.css">
+<script src="PtrnFunc.js"> </script>
+</head>
+
+<body>
+<div class="parent">
+
+<!-- The Header Div -->
+<div class="header"> 
+<h1> SVG Pattern Editor </h1>
+</div>
+
+<!-- The Left Div -->
+<div class="sidecontent left" id="svg_div"> 
+<p id="svg"> SVG PATTERN VIEWER </p>
+
+<svg id="displaySVG" width="500" height="500" style="background: #300000 ;"></svg>
+
+</div>
+
+<!-- The Right Div -->
+<div class="sidecontent right" id="js_div"> 
+<p id="js"> PATTERN CONTROLS</p>
+<svg height="200" width="500">
+<defs>
+		<circle id="_c" cx="20" cy="28" r="12" 
+			stroke-width:3
+			fill=red
+			fill-opacity=1>
+		</circle>
+		<polygon id="_t" points="0,40 40,40 20,0"
+			style= "fill:yellow;
+					stroke:purple;
+					width:1;">
+		</polygon>
+		<rect id="_r" width="40" height="40"
+			style= "fill:blue; 
+					fill-opacity:1;
+					stroke-opacity=1;" >
+		</rect>
+		<polygon id="_t2" points="0,40 40,40 20,10"
+			style= "fill:green;
+					fill-opacity=1">
+		</polygon>
+	</defs>
+		<use x="120" y="40" xlink:href="#_c" > </use>
+
+		<use x="180" y="40" xlink:href="#_t" > </use>
+
+		<use x="240" y="40" xlink:href="#_r" > </use>
+
+		<use x="300" y="0" xlink:href="#_t2" > </use> 
+
+	<g id="_crt">
+		<use x="370" y="40" xlink:href="#_r" > </use>
+		<use x="370" y="40" xlink:href="#_t" > </use>
+		<use x="370" y="40" xlink:href="#_c" > </use>
+		<use x="370" y="0" xlink:href="#_t2" > </use> 
+	</g>
+	<use xlink:href="#_crt" transform="rotate(180,390,80)"> </use>
+
+	<text x="120" y="100"> Shape 1 </text>
+	<text x="180" y="100"> Shape 2 </text>
+	<text x="240" y="100"> Shape 3 </text>
+	<text x="300" y="100"> Shape 4 </text>
+	<text x="370" y="170"> Shape 5 </text>
+	<text x="330" y="185"> (combination of 1-4) </text>
+
+
+</svg>
+<form id="svgUI">
+	<table>
+		<tr>
+		<td align="right"> Select How many shapes you want to display : </td>
+		<td align="left"> 
+			<select id="noOfShapes" onchange="disable(this.value)">
+				<option> 1 </option>
+				<option> 2 </option>
+				<option> 3 </option>
+				<option> 4 </option>
+				<option selected="selected"> 5 </option>
+			</select>
+		</td>
+		<tr>
+			<td align="left">*Please type in the number of rows: </td>
+			<td align="left"><input type="text" name="rows" id="rows" value="1"> </td>
+		</tr>
+		<tr>
+			<td align="left">*Please type in the number of columns: </td>
+			<td align="left"><input type="text" name="cols" id="cols" value="1"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2" rowspan="2"><h2>Colours</h2> </td>
+		</tr>
+		<tr>
+		</tr>
+		<tr>
+			<td align="left">Choose a colour for each shape </td>
+		</tr>
+		<tr>
+			<td align="center">Shape 1</td>
+			<td align="left">
+				<select id="s1Colour">
+					<option selected="selected"> red</option>
+					<option> yellow </option>
+					<option> blue </option>
+					<option> green </option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">Shape 2</td>
+			<td align="left">
+				<select id="s2Colour">
+					<option> red</option>
+					<option selected="selected"> yellow </option>
+					<option> blue </option>
+					<option> green </option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">Shape 3</td>
+			<td align="left">
+				<select id="s3Colour">
+					<option> red</option>
+					<option> yellow </option>
+					<option selected="selected"> blue </option>
+					<option> green </option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">Shape 4</td>
+			<td align="left">
+				<select id="s4Colour">
+					<option> red</option>
+					<option> yellow </option>
+					<option> blue </option>
+					<option selected="selected"> green </option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td align="center"><input type="button" onclick="createSVGPattern()" value="Generate SVG"></td>
+			<td align="center"><input type="button" onclick="window.location.reload()" value="reset"> </td>
+	</table>
+<script>
+function disable(noOfShapes){
+	if(noOfShapes == 1){
+		document.getElementById("s1Colour").disabled=false;
+		document.getElementById("s2Colour").disabled=true;
+		document.getElementById("s3Colour").disabled=true;
+		document.getElementById("s4Colour").disabled=true;
+	} else if(noOfShapes == 2){
+		document.getElementById("s1Colour").disabled=false;
+		document.getElementById("s2Colour").disabled=false;
+		document.getElementById("s3Colour").disabled=true;
+		document.getElementById("s4Colour").disabled=true;
+	} else if(noOfShapes == 3){
+		document.getElementById("s1Colour").disabled=false;
+		document.getElementById("s2Colour").disabled=false;
+		document.getElementById("s3Colour").disabled=false;
+		document.getElementById("s4Colour").disabled=true;
+	} else if (noOfShapes <= 4){
+		document.getElementById("s1Colour").disabled=false;
+		document.getElementById("s2Colour").disabled=false;
+		document.getElementById("s3Colour").disabled=false;
+		document.getElementById("s4Colour").disabled=false;
+	}
+}
+</script>
+
+</form>
+</div>
+<!-- WHERE MY JAVASCRIPT WILL APPEAR -->
+
+</div>
+<!-- The Bottom Div -->
+<div class="footer" > 
+NAME: CHRISTIAN PAUL DOMINGO &nbsp STUDENT ID:EEP214 &nbsp MODULE: ICP-4123 TECHNOLOGY FOR INTERNET SYSTEMS &nbsp @BANGOR UNIVERSITY
+</div>
+</body>
+</html>

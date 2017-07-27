@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive' >
+  <head>
+    <meta content='HudPrototype.x3d' name='title'/>
+    <meta content='Demonstrates use of a ProximitySensor in building a HUD' name='description'/>
+  </head>
+
+  <Scene>
+    <!-- Simple Heads-Up Display (HUD) Prototype
+
+          Manages the display of a HUD and maintains its position on the screen. This HUD can contain a text string,
+          Changes to fieldOfView (in Viewpoint node) will change screen position
+
+          Fields:
+	hudColor Color of HUD (inputOutput - SFColor) default="1 1 1"
+	hudOffset Offset of HUD. This field positions the HUD on the display screen (inputOutput - SFVec3f) default="0 0 0"
+	hudString Text to be displayed in HUD
+	hudFontsize Size of text string
+	position_changed Current viewer location (outputOnly - SFVec3f)
+	orientation_changed Current viewer orientation (outputOnly - SFRotation)
+     -->
+    <ProtoDeclare name='HUD'>
+      <ProtoInterface>
+        <field accessType='inputOutput' name='hudColor' type='SFColor' value='1 1 1'/>
+        <field accessType='inputOutput' name='hudOffset' type='SFVec3f' value='0 0 0'/>
+        <field accessType="inputOutput" name="hudString" type="MFString" value='"Some text"'/>
+        <field accessType="initializeOnly" name="hudFontsize" type="SFFloat" value="1.0"/>
+        <field accessType='outputOnly' name='position_changed' type='SFVec3f'/>
+        <field accessType='outputOnly' name='orientation_changed' type='SFRotation'/>
+      </ProtoInterface>
+      
+      <ProtoBody>
+        <Group>
+          <Transform DEF='HudContainer'>
+            <Transform>
+              <IS>
+                <connect nodeField='translation' protoField='hudOffset'/>
+              </IS>
+              <Shape>
+                <Appearance>
+                  <Material>
+                    <IS>
+                      <connect nodeField='diffuseColor' protoField='hudColor'/>
+                    </IS>
+                  </Material>
+                </Appearance>
+        	<Text>
+              	  <IS>
+                     <connect nodeField="string" protoField="hudString"/>
+                   </IS>
+                  <FontStyle>
+                    <IS>
+                      <connect nodeField="size" protoField="hudFontsize"/>
+                    </IS>
+                  </FontStyle>
+                  </Text>
+              </Shape>
+            </Transform>
+          </Transform>
+          <ProximitySensor DEF='HereIAm' enabled='true' size='1000 1000 1000'>
+            <IS>
+              <connect nodeField='position_changed' protoField='position_changed'/>
+              <connect nodeField='orientation_changed' protoField='orientation_changed'/>
+            </IS>
+          </ProximitySensor>
+          <ROUTE fromField='orientation_changed' fromNode='HereIAm' toField='rotation' toNode='HudContainer'/>
+          <ROUTE fromField='position_changed' fromNode='HereIAm' toField='translation' toNode='HudContainer'/>
+        </Group>
+      </ProtoBody>
+    </ProtoDeclare>
+    
+    
+
+    <Transform
+        translation = "0 1 0"
+        rotation = "0 0 0 0"
+        scale = "1 1 1">
+        <Shape>
+            <Appearance>
+                <Material />
+                <ImageTexture url=' "earth-topo.png" ' />
+            </Appearance>
+            <Sphere radius="1.0" />
+        </Shape>
+    </Transform>
+    
+    <ProtoInstance name="HUD" containerField="children">
+        <fieldValue name="hudString" value="Hello World!"/>
+        <fieldValue name="hudOffset" value="-2 -1 -8" />
+    </ProtoInstance>
+    
+  </Scene>
+</X3D>

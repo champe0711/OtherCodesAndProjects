@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive'>
+    <head>
+        <meta content='exercise-1.x3d *' name='title'/>
+        <meta content='exercise-1 Hello World' name='description'/>
+        <meta content='Christian_Domingo' name='creator'/> 
+    </head>
+    <Scene>   
+<!--        <Transform
+            translation = "-25 0 0"
+            rotation = "0 0 0 0"
+            scale = "1 1 1">
+            <Shape>
+                <Sphere radius="20.0" />
+            </Shape>
+        </Transform>
+        
+        sphere plus transformation
+-->
+        <Shape>    
+        <Appearance>
+            <Material ambientIntensity = "0.7"
+                      transparency = "0.0" 
+                      emissiveColor = "0.0 0.0 0.0"
+                      shininess = "1.0"
+                      diffuseColor = "1.0 0.0 0.0"
+                      specularColor = "1.0 0.0 0.0" />
+                      <!-- Image binding
+                      MImageTexture url = '"#nameofimage.png" ' />
+                      this will overide the colour in the material node
+                      -->
+                        	  
+        </Appearance>
+        <Text string = ' "HELLO WORLD" '>
+            <FontStyle 
+                family= "SERIF"
+                style = "BOLD" 
+                justify= "MIDDLE"
+                size= "20.0" 
+                horizontal="vertical"
+                topToBottom="true"
+            />
+        </Text>
+        </Shape>
+    </Scene>
+</X3D>

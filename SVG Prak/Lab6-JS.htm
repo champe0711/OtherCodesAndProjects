@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<title> Lab6 - Java Script </title>
+<head>
+</head>
+<body>
+<script>
+function info(){
+	document.getElementById("js").innerHTML="JavaScript is embedded as below . . .";
+	document.getElementById("greet").innerHTML="<h1>Greetings Lord Master Majesty </h1>";
+	document.getElementById("title").innerHTML="The title of this document is \"" + document.title + "\"<br />";
+	document.getElementById("loc").innerHTML="The location of this document is at \"" + document.URL + "\"";
+	document.getElementById("end").innerHTML="this is the end of JavaScript";
+}
+
+function createTable(row, col){
+	//refrence
+	var body = document.getElementById("tbl");
+
+	//tbl and tbody
+	var tbl = document.createElement("table");
+	var tblbody = document.createElement("tbody");
+
+	for (var i = row; i >= 0; i--) {
+		var row = document.createElement("tr");
+
+		for (var j = col - 1; j >= 0; j--) {
+			var cell = document.createElement("td");
+				var cellText = document.createTextNode("row = "+ i +", column =" + j );
+			cell.appendChild(cellText);
+			row.appendChild(cell);
+		};
+		tblbody.appendChild(row);
+	};
+
+	tbl.appendChild(tblbody);
+	body.appendChild(tbl);
+	tbl.setAttribute("border", "1");
+}
+
+function ttable(){
+	var loc = document.getElementById("t");
+
+	for (var i = 0; i <= 13; i++) {
+		var text = document.createTextNode("13 * "+ i +" = "+ 13*i);
+		var brkLine = document.createElement("br");
+		loc.appendChild(text);
+		loc.appendChild(brkLine);
+	}
+
+}
+</script>
+
+<h1> This is Lab 6 - Java Script </h1>
+<p id="js"> Start Javascript here </p>
+<p id="greet"> Greet </p>
+<p id="title"> title </p>
+<p id="loc"> url </p>
+<p id="end"> end </p>
+
+<button onclick="info()">Click for info </button>
+
+<h3> This is the end of the Web Document </h3>
+
+<br />
+<hr />
+<br />
+<h1> Creating Tables using JS </h1>
+
+<button onclick="createTable(10,2)"> click to create a table </button>
+<p id="tbl"> </p>
+
+<br />
+<hr />
+<br />
+
+<h1>The 13 Times Table</h1>
+<button onclick="ttable()"> produce 13 times table </button>
+<p id="t"> </p>
+
+<br />
+<hr />
+<br />
+
+</body>
+</html

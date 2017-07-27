@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<X3D profile="Immersive">
+<Scene>
+  <Viewpoint orientation='1 0 0 0.1' position='0.0 0.6 8.0'/>
+  <NavigationInfo headlight='false' speed='2.0' type='"WALK" "ANY"'/>
+  <DirectionalLight ambientIntensity='0.5' direction='0.0 -1.0 -0.5'/>
+  <Background skyAngle='1.371 1.571' skyColor='0.0 0.0 1.0 0.0 0.5 1.0 0.7 0.7 1.0'/>
+  <Shape>
+    <Appearance>
+      <ImageTexture url='"milkyway.jpg"'/>
+    </Appearance>
+    <IndexedFaceSet coordIndex='0 1 2 3' solid='false'>
+      <Coordinate point='-50.0 -1.0 50.0 50.0 -1.0 50.0 50.0 -1.0 -50.0 -50.0 -1.0 -50.0'/>
+    </IndexedFaceSet>
+  </Shape>
+  <Transform DEF='Ball'>
+    <Shape>
+      <Appearance>
+        <TextureTransform scale='2.0 1.0'/>
+        <Material ambientIntensity='0.5' diffuseColor='1.0 1.0 1.0' shininess='0.4' specularColor='0.7 0.7 0.7'/>
+        <ImageTexture url='"earth-topo.png"'/>
+      </Appearance>
+      <Sphere/>
+    </Shape>
+  </Transform>
+  
+  <TimeSensor cycleInterval='2.0' DEF='Clock' loop='true' startTime='1.0' stopTime='0.0'/>
+  
+  <Script DEF='Bouncer'>
+    <field accessType='outputOnly' name='value_changed' type='SFVec3f'/>
+    <field accessType='initializeOnly' name='bounceHeight' type='SFFloat' value='3.0'/>
+    <field accessType='inputOnly' name='set_fraction' type='SFFloat'/>
+    <![CDATA[
+            ecmascript:
+  // Calculate the height of a bouncing ball
+  function set_fraction ( frac ) {
+    y = 4.0 * bounceHeight * frac * (1.0 - frac);
+    value_changed[0] = 0.0;
+    value_changed[1] = y;
+    value_changed[2] = 0.0;
+    
+    Browser.print(value_changed);
+ 
+  }
+  ]]>
+  </Script>
+  
+  <ROUTE fromField='fraction_changed' fromNode='Clock' toField='set_fraction' toNode='Bouncer'/>
+  <ROUTE fromField='value_changed' fromNode='Bouncer' toField='set_translation' toNode='Ball'/>
+  
+</Scene>
+</X3D>

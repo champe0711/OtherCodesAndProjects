@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive'>
+    <head>
+        <meta content='externalPrototypeImplementation.x3d *' name='title'/>
+        <meta content='exercise-3 Implementation of External Text String Prototype' name='description'/>
+        <meta content='Christian Paul Domingo' name='creator'/> 
+    </head>
+    <Scene>
+        <ExternProtoDeclare name="TextString" url="externalPrototype.x3d#TextString">
+                <field accessType="inputOutput" name="offset" type="SFVec3f" value="0 0 0" />
+                <field accessType="inputOutput" name="string" type="MFString" value='"Some text"' />
+                <field accessType="initializeOnly" name="size" type="SFFloat" value="1.0" />
+                <field accessType="initializeOnly" name="textorientation" type="MFString" value="MIDDLE" />
+                <field accessType="initializeOnly" name="textColor" type="SFColor" value="1.0 0.0 1.0" />
+        </ExternProtoDeclare>
+        
+        <ProtoInstance name="TextString" containerField="children">
+            <fieldValue name="offset" value="0 -5.4 0" />
+            <fieldValue name="string" value='"Hello" "World!"' />            
+        </ProtoInstance>
+        
+        <ProtoInstance name="TextString" containerField="children">
+            <fieldValue name="offset" value="0 0 0" />
+            <fieldValue name="string" value='"GoodBye" "World!"' />
+        </ProtoInstance>
+    </Scene>
+</X3D>

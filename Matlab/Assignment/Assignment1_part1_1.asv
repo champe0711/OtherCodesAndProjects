@@ -1,0 +1,37 @@
+clear all
+clc
+close all
+
+%Part 1 Assignment_1
+
+% Cell Array block
+breads_n_prices = {'bread01', 1.01; 'bread02',2.02; 'bread03',3.03; 'bread04',4.04; 'bread05',5.05;'bread06',6.06;};
+staff = {'Ash', 'Brock', 'Gary', 'Misty'};
+
+% variable block
+date_now = (datestr(now,0));
+Company_name = 'Christian Bakery';
+%product 1
+p1 = ceil(rand*6);
+p1_item = breads_n_prices{p1,1};
+p1_quantity = ceil(rand*9);
+p1_price = breads_n_prices{p1,2};
+p1_total = p1_quantity*p1_price;
+%product 2
+
+%product 3
+
+
+curr_staff = staff{randperm(4)};
+% printing block
+
+fprintf('+-------------------------------------------------------------+\n');
+fprintf('|%60s |\n','');
+fprintf('|%-30s %30s|\n', date_now, Company_name);%prints date and company
+fprintf('|%60s |\n',''), fprintf('|%60s |\n','');
+fprintf('|%30s  (%1i)  x  %4.2f  =  £  %5.2f    | \n', p1_item, p1_quantity, p1_price, p1_total );%prints product 1
+fprintf('|%30s  -------------------------    |\n','');
+fprintf('|%60s |\n','');
+fprintf('|Thank you!, you have been served by %-25s| \n', curr_staff);
+fprintf('|%60s |\n','');
+fprintf('+-------------------------------------------------------------+\n');

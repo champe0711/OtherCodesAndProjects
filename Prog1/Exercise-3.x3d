@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive'>
+    <head>
+        <meta content='exercise-3.x3d *' name='title'/>
+        <meta content='exercise-3 Creating a Prototype for Text Labels' name='description'/>
+        <meta content='Christian Paul Domingo' name='creator'/> 
+    </head>
+    <Scene>
+        <ProtoDeclare name="TextString">
+            <ProtoInterface>
+                <field accessType="inputOutput" name="offset" type="SFVec3f" value="0 0 0" />
+                <field accessType="inputOutput" name="string" type="MFString" value='"Some text"' />
+                <field accessType="initializeOnly" name="size" type="SFFloat" value="1.0" />
+                <field accessType="initializeOnly" name="textorientation" type="MFString" value="MIDDLE" />
+                <field accessType="initializeOnly" name="textColor" type="SFColor" value="1.0 0.0 1.0" />
+            </ProtoInterface>
+            <ProtoBody>
+                <Transform>
+                    <IS>
+                        <connect nodeField="translation" protoField="offset"/>
+                    </IS>
+                    <Shape>
+                        <Appearance>
+                            <Material>
+                                <IS>
+                                    <connect nodeField="diffuseColor" protoField="textColor" />
+                                </IS>
+                            </Material>
+                        </Appearance>
+                        <Text>
+                            <IS>
+                                <connect nodeField="string" protoField="string" />
+                            </IS>
+                            <FontStyle>
+                                <IS>
+                                    <connect nodeField="size" protoField="size" />
+                                    <connect nodeField="justify" protoField="textorientation" />
+                                </IS>
+                            </FontStyle>
+                        </Text>
+                    </Shape>
+                </Transform>
+            </ProtoBody>
+        </ProtoDeclare>
+        
+        
+        <ProtoInstance name="TextString" containerField="children">
+            <fieldValue name="offset" value="0 -5.4 0" />
+            <fieldValue name="string" value="WORLD!" />            
+        </ProtoInstance>
+        
+<!--        <Group>
+            <Viewpoint description="Rear View" orientation="0 1 0 3.14" position="0 2 -15" />
+        This will change the sorroundings of the VE to the user
+            <Background groundAngle="1.57" groundColor="0 0.5 0 0 0.5 0" skyColor="0 0 1" />
+            <ProximitySensor DEF="PROX_SENSOR" size="1000 1000 1000" />
+        </Group>-->
+        
+        
+<!-- Sphere -->
+        <Transform
+            translation = "0 -2.4 0"
+            rotation = "0 0 0 0"
+            scale = "1 1 1">
+            <Shape>
+                <Appearance>
+                    <Material />
+                    <ImageTexture url=' "earth-topo.png" ' />
+                </Appearance>
+                <Sphere radius="2.0" />
+            </Shape>
+        </Transform>
+        
+
+<!-- Hello World Text -->
+        <Transform>
+            <Shape>    
+            <Appearance>
+                <Material ambientIntensity = "0.7"
+                          transparency = "0.0" 
+                          emissiveColor = "0.0 0.0 0.0"
+                          shininess = "1.0"
+                          diffuseColor = "1.0 1.0 0.0"
+                          specularColor = "1.0 1.0 0.0" />
+<!--                           Image binding
+                          <ImageTexture url = '"#nameofimage.png" ' />
+                          this will overide the colour in the material node-->
+            </Appearance>
+            
+            <Text string = ' "HELLO" '>
+                <FontStyle 
+                    family= "SERIF"
+                    style = "BOLD" 
+                    justify= "MIDDLE"
+                    size= "1.0" 
+
+                />
+            </Text>
+            </Shape>
+        </Transform>
+        
+    </Scene>
+</X3D>

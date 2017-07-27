@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.3//EN" "http://www.web3d.org/specifications/x3d-3.3.dtd">
+<X3D profile='Immersive'>
+    <head>
+        <meta content='exercise-4.x3d *' name='title'/>
+        <meta content='exercise-4 Using a PlaneSensor' name='description'/>
+        <meta content='Christian_Domingo' name='creator'/> 
+    </head>
+    <Scene>
+        
+        <!-- Plane Sensor -->
+        <Group>
+        <PlaneSensor DEF="Mover" maxPosition="10 4" minPosition="-10 4" />
+            <Transform DEF="MoveMe"
+                translation = "0 4 0"
+                rotation = "0 0 0 0"
+                scale = "1 1 1">
+                <Shape>
+                    <Appearance>
+                        <Material />
+                        <ImageTexture url=' "earth-topo.png" ' />
+                    </Appearance>
+                    <Sphere radius="2.0" />
+                </Shape>
+            </Transform>
+        </Group>
+        <ROUTE fromNode="Mover" fromField="translation_changed" 
+               toNode="MoveMe" toField="set_translation" />
+
+        <!-- Sphere Sensor - Make object draggable in X and Y Direction to rotate -->
+<!--        <Group>
+            <SphereSensor DEF="Mover" autoOffset="off" description="click and drag to rotate" offset="0 1 0 0.6" />
+            <Transform DEF="MoveMe">
+                <Shape>
+                    <Appearance>
+                        <Material />
+                        <ImageTexture url=' "earth-topo.png" ' />
+                    </Appearance>
+                    <Sphere radius="2.0" />
+                </Shape>
+            </Transform>
+        </Group>
+        
+        <ROUTE fromNode="Mover" fromField="rotation_changed" 
+               toNode="MoveMe" toField="set_rotation" />-->
+        
+        <!-- Cylinder Sensor - Make the object draggable in X directions to rotate -->
+<!--        <Group>
+        <CylinderSensor DEF="Mover" autoOffset="false" description="Click and drag to rotate" />
+            <Transform DEF="MoveMe"
+                translation = "0 4 0"
+                rotation = "0 0 0 0"
+                scale = "1 1 1">
+                <Shape>
+                    <Appearance>
+                        <Material />
+                        <ImageTexture url=' "earth-topo.png" ' />
+                    </Appearance>
+                    <Sphere radius="2.0" />
+                </Shape>
+            </Transform>
+        </Group>
+        <ROUTE fromNode="Mover" fromField="trackPoint_changed" 
+               toNode="MoveMe" toField="set_rotation" />-->
+        
+        
+        <!-- Hello world in blue -->
+        <Transform>
+            <Shape>    
+            <Appearance>
+                <Material ambientIntensity = "0.7"
+                          transparency = "0.0" 
+                          emissiveColor = "0.0 0.0 0.0"
+                          shininess = "1.0"
+                          diffuseColor = "0.0 0.0 1.0"
+                          specularColor = "0.0 0.0 1.0" />
+            </Appearance>
+            <Text string = ' "HELLO" "WORLD" '>
+                <FontStyle 
+                    family= "SERIF"
+                    style = "BOLD" 
+                    justify= "MIDDLE"
+                    size= "1.0" />
+            </Text>
+            </Shape>
+        </Transform>
+    </Scene>
+</X3D>

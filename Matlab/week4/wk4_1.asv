@@ -1,0 +1,10 @@
+clear all
+clc
+close all
+
+%Assignment 
+x = rand(1,200);
+y = ceil(x + 4);
+%x = 0:10;
+%y = x.^2 - 5*x;
+plot(x)

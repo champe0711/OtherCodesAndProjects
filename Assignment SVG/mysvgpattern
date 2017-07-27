@@ -1,0 +1,63 @@
+<!-- Where my SVG WILL APPEAR -->
+<!-- <svg width="500" height="600">
+	<text id="display_svg" x="300" y="150" fill="yellow" transform="rotate(30 20,40)" > 
+		DEMO SVG 
+	</text>
+
+
+	<defs>
+		<circle id="_c" cx="20" cy="28" r="12" 
+			stroke-width:3
+			fill=red
+			fill-opacity=0.5>
+		</circle>
+		<polygon id="_t" points="0,40 40,40 20,0"
+			style= "fill:yellow;
+					stroke:purple;
+					width:1;">
+		</polygon>
+		<rect id="_r" width="40" height="40"
+			style= "fill:blue; 
+					fill-opacity:0.5;
+					stroke-opacity=1;" >
+		</rect>
+		<polygon id="_t2" points="0,40 40,40 20,10"
+			style= "fill:green;
+					fill-opacity=0.5">
+		</polygon>
+	</defs>
+	<g id="_crtrow">
+		<g id="_crtcol">
+			<g id="_crt">
+				<use x="10" y="40" xlink:href="#_r" > </use>
+				<use x="10" y="40" xlink:href="#_t" > </use>
+				<use x="10" y="40" xlink:href="#_c" > </use>
+				<use x="10" y="0" xlink:href="#_t2" > </use>
+			</g>
+			<use xlink:href="#_crt" transform="rotate(180,30,80)"> </use>
+		</g>
+
+		<use x="40" y="0" xlink:href="#_crtcol"> </use>
+		<use x="80" y="0" xlink:href="#_crtcol"> </use>
+		<use x="120" y="0" xlink:href="#_crtcol"> </use>
+		<use x="160" y="0" xlink:href="#_crtcol"> </use>
+		<use x="200" y="0" xlink:href="#_crtcol"> </use>
+		<use x="240" y="0" xlink:href="#_crtcol"> </use>
+		<use x="280" y="0" xlink:href="#_crtcol"> </use>
+		<use x="320" y="0" xlink:href="#_crtcol"> </use>
+		<use x="360" y="0" xlink:href="#_crtcol"> </use>
+		<use x="400" y="0" xlink:href="#_crtcol"> </use>
+		<use x="440" y="0" xlink:href="#_crtcol"> </use>
+	</g>
+
+	<g id="_crtrow2">
+		<use x="-20" y="110" xlink:href="#_crtrow"> </use>
+		<use x="460" y="110" xlink:href="#_crtcol"> </use>
+	</g>
+
+	<use x="0" y="220" xlink:href="#_crtrow"> </use>
+	<use x="0" y="220" xlink:href="#_crtrow2"> </use>
+	<use x="0" y="440" xlink:href="#_crtrow"> </use>
+
+</svg>
+ -->

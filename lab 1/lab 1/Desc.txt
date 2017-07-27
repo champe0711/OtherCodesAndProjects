@@ -1,0 +1,6 @@
+Project consist of:
+
+Use of graphics API
+paint
+Graphics class
+fonts class
